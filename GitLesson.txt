@@ -1,0 +1,185 @@
+From Hasin Haider about git command
+
+#class-1:
+   [Some Basic Git Command]
+	1. Commit - (For Server Registration)
+	2. Push - (Upload the file to the server)
+	4. Pull - (Download the file from the server)
+	5. Status
+	6. Add
+	7. Diff
+	8. Log
+	9. Show
+       10. reset
+       11. branch
+       12. Checkout
+       13. Merge
+       14. Stash - (Trash)
+       15. Amemd
+
+#class-2: [Commit related class]
+	1. git init
+ [Then crate a text file as Text.txt]
+	2. git status
+	3. git add Text.txt
+	4. git commit -m "added some text"
+	5. git push -u origin master
+
+ [Then added some more text in Text.txt]
+	6. git diff
+	7. git commit -m "added some more text"
+	8. git push -u origin master
+
+ [Crate another text file as GitLesson.txt]
+	9. git status
+	10. git add GitLesson.txt
+	11. git commit -m "create another text file" GitLesson.txt
+	12. git push -u origin master
+
+ [Two text file update]
+	13. git status
+	14. git diff
+	15. git commit -m "Both files are update with some extra text" Text.txt GitLesson.txt
+
+ [Here also can use (git commit -am "Some Message") where (-am) use for (all message)]
+
+	16. git push -u origin master
+
+ [See Totall work and chages details here-]
+	17. git log
+	
+ [show the link comitt (977csafsdffg65sd64tyj328saffg) like this (Just example)]
+ From here copy some 4 or 5 letters and then commad for see the change topics
+	18. git show 977csa (Just Example)
+
+
+#class-3: [Commit reset and amend]
+
+	19. git log
+	20. git show 977csa
+
+ [For show which number of commit and retrieve that previous file] 
+ [For previous committed file show and can editable which means previous version of that file]
+	21. git checkout 977csa
+
+ [For show the previous version file content]
+	22. cat Text.txt
+	
+ [For show latest version file or back to the present version from previous version (Back to the head)]
+	23. git checkout master
+
+ [for show previous specific file content]
+	24. git checkout 977csa Text.txt
+	
+ [Back from previous specific file content]
+	25. git checkout master
+
+ [For back from mistake commit {Note: If any content push then it's can't reset}]
+ [Two types of reset {(1) soft (2) Hard}]
+	26. git reset --soft 977csa
+
+ [For {Soft reset} - can see the previous mistake commit]
+	27. git diff HEAD
+
+ [For delete previous mistake commit  {Soft reset}]
+	28. git commit -m "Commit here" Text.txt
+
+ [for {Hard reset}]
+	29. git reset --hard 977csa
+
+ [For show totall version (Previous + latest Commit)]
+	30. git reflog
+
+ [For give partial commit]
+	31. gc -m "For partial commit" Text.txt
+
+ [After partial commit]
+ [Then change some content in another file gitLesson.txt for amend]
+	32. git add gitLesson.txt
+        33. git commit --amend
+
+
+#class-4: [Commit stash and clean]
+
+ [For temporally save (it will not delete but in hidden situation for future use)]
+	34. git stash
+
+ [After stash command the save file or content can be retrieve from hidden]
+ [show the hidden content after stash]
+	35. git stash pop (or) 35. git stash apply
+
+ [For show totall stash]
+	36. git stash list
+
+ [After all work done then need to clear all stash]
+	37. git stash clear
+
+ [For permenantly all file delete but {it is risky}]
+	38. git clean -f
+ 
+ [For specific file delete permenantly]
+	39. git clean -f -n
+
+ [Then show all file for choose which will be delete]
+	40. git clean -f
+
+
+#class-5: [Commit push and pop]
+
+	[Bitbucket && Github && Meat && GitLab]
+
+	41. git clone https://github.com/sayem1413/gitTest.git
+
+ [Working on existing another project]
+	42. git remote add origin git clone https://github.com/sayem1413/gitTest.git
+	43. git remote show
+	44. git remote show origin
+	45. git push origin master
+
+ [After change file content]
+	46. git commit -m "commit added....."
+	47. git push origin master
+
+ [For download the file from Github]
+	48. git pull origin master
+	
+#class-6: [Git Ignor file]
+	49. .gitignore
+
+ [ In .gitignore file there will be ignore files which should be ignored when push]
+ [In .gitignore file {*.zip (as example)} must with star(*) and file then file extension]
+
+	50. git add .gitignore
+	51. git commit -am "gitignore file upload"
+	52. git push origin master
+
+#class-7: [Git Conflict fix or resolve]
+
+ [Alias system in git]
+	53. alias gc="git commit"
+	
+ [For resolve git merge conflict nedd to pull the project first]
+ [Then edit the code]
+
+	54. git mergetool [For merge tool there need to some other work]
+	
+
+#class-8: [Git Commands aliasing Procedure]
+
+ [For Linux: "~/.bashrc"]
+ [For Mac: "~/.zshrc"]
+	55. alias gc="git commit"
+	56. alias gs="git status"
+	57. alias gl="git log"
+	58. alias ga="git add"
+	59. alias gpom="git push origin master"
+	60. alias gplm="git pull origin master"
+
+ [For permenantly aliasing]
+ [For Linux: "~/.bashrc"]
+ [For Mac: "~/.zshrc"]
+
+ [For Manually]
+	61. source ~/.myaliases
+ 
+ [For mac automatically]
